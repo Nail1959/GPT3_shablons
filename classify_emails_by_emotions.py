@@ -2,7 +2,12 @@
 # Importing Dependencies
 from chronological import read_prompt, cleaned_completion, main
 import os
-import time
+
+ENGINE = 'davinci'
+TEMPERATURE = 0.9
+TOP_P = 1
+MAX_TOKENS = 900
+FREQUENCY_PENALTY = 0.1
 
 def csv_to_prompt(file_name='data_for_task2.csv'):
     file_out = file_name.replace('.csv', '.txt')
@@ -10,13 +15,13 @@ def csv_to_prompt(file_name='data_for_task2.csv'):
     try:
         os.remove(file_out_path)
     except:
-        pass
-    fout = open(file_out_path, mode='a', encoding='utf-8')
+        pass  # Не было файла для удаления
+
     fout_list = list()
     with open(file_name, newline='') as f:
         reader = f.readlines()
         for row in reader:
-            str = row.split(';')  # str список из двух элементов
+            str = row.split(';')  # str список должен быть из двух элементов
             if len(str) > 2 or len(str) < 2:
                 break
             try:
@@ -37,8 +42,8 @@ async def classify_emails_by_emotions():
 
     f_prompt = csv_to_prompt(file_name='data_for_task2.csv')
     prompt_classify = read_prompt(f_prompt.replace('.txt',''))
-    completion_classify = await cleaned_completion(prompt_classify, max_tokens=900, engine="davinci",
-                                                temperature=0.9, top_p=1, frequency_penalty=0.1, stop=["\n\n"])
+    completion_classify = await cleaned_completion(prompt_classify, max_tokens=MAX_TOKENS, engine=ENGINE,
+                        temperature=TEMPERATURE, top_p=TOP_P, frequency_penalty=FREQUENCY_PENALTY, stop=["\n\n"])
     # time.sleep(30)
     # возвращает ответ
     return completion_classify
