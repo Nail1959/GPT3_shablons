@@ -25,7 +25,7 @@ def csv_to_prompt(file_name='data_for_task2.csv'):
                 break
     max_rate = len(fout_list)
     fout = open(file_out_path, mode='a', encoding='utf-8')
-    fout.write(f'Range the emotion in these emails and sort by range from {max_rate} to 1, most positive is {max_rate} :\n\n')
+    fout.write(f'Range the emotion in these emails and sort by range from {max_rate} to 1, most positive must be {max_rate} :\n\n')
     for l in fout_list:
         fout.write(l)
 
@@ -38,7 +38,7 @@ async def classify_emails_by_emotions():
     f_prompt = csv_to_prompt(file_name='data_for_task2.csv')
     prompt_classify = read_prompt(f_prompt.replace('.txt',''))
     completion_classify = await cleaned_completion(prompt_classify, max_tokens=900, engine="davinci",
-                                                temperature=0.9, top_p=1, frequency_penalty=0.1) #, stop=["\n\n"])
+                                                temperature=0.9, top_p=1, frequency_penalty=0.1, stop=["\n\n"])
     # time.sleep(30)
     # возвращает ответ
     return completion_classify
