@@ -1,10 +1,13 @@
 # coding=utf8
 # Importing Dependencies
 from chronological import read_prompt, cleaned_completion, main
+import csv
 
 
 # Пример краткой "выжимки из текста"
 # Prompt источник: https://ru.wikipedia.org/wiki/AlphaGo
+
+
 
 async def summarization_example():
     
