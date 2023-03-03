@@ -17,3 +17,6 @@ Shablons for working with OpenAI GPT API.
 1. Необходимо зарегестрироваться в openai.com. Для России необходимо установить VPN и получить SMS оповещение.
 1. Необходимо получить API secret key и вписать его в файл .env.
 3. pip install -r requirements.txt.
+
+Папка prompts_html содержит примеры ввода (prompt) для разных возможных задач. 
+Примеры взяты из видеокурса chatgpt-101-supercharge-prompts. Реализованы в виде java-scripts.
