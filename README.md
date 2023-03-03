@@ -5,7 +5,7 @@ Shablons for working with OpenAI GPT API.
 
 в файле /prompts/summarize_for_AlphaGo.txt .
 взято описание из википедии https://en.wikipedia.org/wiki/AlphaGo .
-программа text_suuarization.py выведет краткую информацию с заданным 
+программа text_sumarization.py выведет краткую информацию с заданным 
 максимальным количеством токенов.
 
 программа classify_emails_by_emotions.py ранжирование сообщений по эмоциональной окраски сообщения
